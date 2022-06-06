@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             Image.image = imageBitmap
+            Image.images.push(imageBitmap)
             val intent = Intent(this@MainActivity, EditImageActivity::class.java)
             startActivity(intent)
             binding.ivImage.setImageBitmap(Image.image)
