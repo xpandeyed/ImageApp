@@ -16,7 +16,7 @@ class EditImageActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.imageView)
         imageView.setImageBitmap(Image.image)
         val bRotate = findViewById<Button>(R.id.button)
-        val bUndo = findViewById<Button>(R.id.button)
+        val bUndo = findViewById<Button>(R.id.bUndo)
 
         bRotate.setOnClickListener {
             val matrix = Matrix()
@@ -38,7 +38,7 @@ class EditImageActivity : AppCompatActivity() {
                 Toast.makeText(this, "Cannot do Undo", Toast.LENGTH_SHORT).show()
                 Image.images.push(currImage)
             }else{
-                imageView.setImageBitmap(currImage)
+                imageView.setImageBitmap(Image.images.peek())
             }
         }
     }
